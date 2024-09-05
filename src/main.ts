@@ -66,8 +66,11 @@ const displayProducts = (productList: IProduct[]) => {
 
   productList.forEach((product: IProduct) => {
     const productCard = document.createElement("div") as HTMLDivElement;
+    productCard.className = "product-card";
     const productDiv = document.createElement("div") as HTMLDivElement;
+    productDiv.className = "product-div";
     const priceDiv = document.createElement("div") as HTMLDivElement;
+    priceDiv.className = "price-div";
     const productImage = document.createElement("img") as HTMLImageElement;
     productImage.className = "product-img";
     productImage.src = product.image;
