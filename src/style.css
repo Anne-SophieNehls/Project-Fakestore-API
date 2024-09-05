@@ -63,7 +63,16 @@ h1 {
   font-family: 'Engelbert';
   line-height: 1.1;
   text-align: center;
-  margin: 40px;
+  margin-top: 40px;
+}
+
+#subline{
+  margin-bottom: 40px;
+  margin-right: 40px;
+  text-align: right;
+  font-family: 'Engelbert';
+  color: #1f4886;
+  font-size: 1.2rem;
 }
 
 input{
@@ -124,7 +133,7 @@ button:focus-visible {
 }
 
 .product-card{
-  max-width: 30%;
+  max-width: 25%;
   height: 450px;
   padding: 5px;
   background-color: #d6e0f1;
@@ -135,7 +144,9 @@ button:focus-visible {
 }
 
 .product-img{
-
+  width: 90%;
+  object-fit: cover;
+  height: 300px;
 }
 
 .titel{
