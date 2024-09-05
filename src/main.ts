@@ -66,10 +66,29 @@ fetch(PRODUCT_URL)
 const displayProducts = (productList: IProduct[]) => {
   cartContent.innerHTML = "";
 
-  productList.forEach(() => {
+  productList.forEach((product: IProduct) => {
     const productCard = document.createElement("div") as HTMLDivElement;
     const productDiv = document.createElement("div") as HTMLDivElement;
     const priceDiv = document.createElement("div") as HTMLDivElement;
+    const productImage = document.createElement("img") as HTMLImageElement;
+    productImage.className = "product-img";
+    productImage.src = product.image;
+    productDiv.appendChild(productImage);
+    const productTitle = document.createElement("p") as HTMLParagraphElement;
+    productTitle.className = "titel";
+    productTitle.textContent = product.title;
+    productDiv.appendChild(productTitle);
+
+    const productSeparator = document.createElement("ht") as HTMLHRElement;
+    priceDiv.appendChild(productSeparator);
+    const productPrice = document.createElement("p") as HTMLParagraphElement;
+    productPrice.className = "price";
+    productPrice.textContent = `$ ${product.price.toString()}`;
+    priceDiv.appendChild(productPrice);
+    const addToCartBtn = document.createElement("button") as HTMLButtonElement;
+    addToCartBtn.className = "add-to-card";
+    priceDiv.appendChild(addToCartBtn);
+
     productCard.appendChild(productDiv);
     productCard.appendChild(priceDiv);
     cartContent.appendChild(productCard);
