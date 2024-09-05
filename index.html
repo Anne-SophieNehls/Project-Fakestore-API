@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="./src/img/coin_11526248.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="/src/main.ts"></script>
     <link rel="stylesheet" href="./src/style.css">
@@ -10,17 +10,26 @@
   </head>
   <body>
     <header> 
-      <h1>Brandname</h1>
+      <h1>Superduper <img src="./src/img/coin_11526248.png" alt="Logo" id="logo"> Shop</h1>
       <nav>
-      <div><input type="text" id="input"> </div>
       <div>
-        <p>Filter in:</p>
-        <button>electronics</button>
-        <button>juvellis</button>
-        <button>mans</button>
-        <button>woman</button>
+        <input type="text" id="search" placeholder="Search by titel"> 
+        <select name="sort-by" id="sort">
+          <option value="sort-by"> Sort by</option>
+          <option value="price-up">⬆️ Preise aufsteigend</option>
+          <option value="price-down">⬇️ Preise absteigend</option>
+        </select>
       </div>
-    </nav></header>
+      <div>
+        <p>Filter by Categories:</p>
+        <button id="electronics" class="btn-filter">electronics</button>
+        <button id="jewelery" class="btn-filter">jewelery</button>
+        <button id="menClothing" class="btn-filter">men's clothing</button>
+        <button id="womenClothing" class="btn-filter">women's clothing</button>
+      </div>
+    </nav>
+  </header>
+
     <main>
     <div id="card-content"></div>
   </main>
