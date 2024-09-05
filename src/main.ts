@@ -28,9 +28,9 @@ searchElement.addEventListener("change", () => {
 });
 
 sortElement.addEventListener("change", () => {
-  if (sortElement.value === "price_up") {
+  if (sortElement.value === "price-up") {
     products.sort((p1: IProduct, p2: IProduct) => p1.price - p2.price);
-  } else if (sortElement.value === "price_down") {
+  } else if (sortElement.value === "price-down") {
     products.sort((p1: IProduct, p2: IProduct) => p2.price - p1.price);
   }
   displayProducts(products);
