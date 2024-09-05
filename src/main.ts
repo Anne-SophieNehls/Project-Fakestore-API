@@ -77,7 +77,7 @@ const displayProducts = (productList: IProduct[]) => {
     productTitle.textContent = product.title;
     productDiv.appendChild(productTitle);
 
-    const productSeparator = document.createElement("ht") as HTMLHRElement;
+    const productSeparator = document.createElement("hr") as HTMLHRElement;
     priceDiv.appendChild(productSeparator);
     const productPrice = document.createElement("p") as HTMLParagraphElement;
     productPrice.className = "price";
@@ -85,6 +85,7 @@ const displayProducts = (productList: IProduct[]) => {
     priceDiv.appendChild(productPrice);
     const addToCartBtn = document.createElement("button") as HTMLButtonElement;
     addToCartBtn.className = "add-to-card";
+    addToCartBtn.textContent = "Add to cart";
     priceDiv.appendChild(addToCartBtn);
 
     productCard.appendChild(productDiv);
