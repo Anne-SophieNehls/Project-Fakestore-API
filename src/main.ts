@@ -20,6 +20,9 @@ const womenClothingFlt = document.getElementById(
   "womenClothing"
 ) as HTMLButtonElement;
 
+//loader
+const loader = document.querySelector(".loader") as HTMLSpanElement
+
 searchElement.addEventListener("change", () => {
   const filteredProducts: IProduct[] = products.filter((product: IProduct) =>
     product.title.toLowerCase().includes(searchElement.value.toLowerCase())
@@ -76,7 +79,7 @@ fetch(PRODUCT_URL)
     });
   })
   .catch((error: Error) => console.error(error.message))
-  .finally()
+  .finally(()=>{loader.style.display = "none"})
 
 const displayProducts = (productList: IProduct[]) => {
   cartContent.innerHTML = "";
