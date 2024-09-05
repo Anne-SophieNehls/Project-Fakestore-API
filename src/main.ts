@@ -20,6 +20,13 @@ const womenClothingFlt = document.getElementById(
   "womenClothing"
 ) as HTMLButtonElement;
 
+searchElement.addEventListener("change", () => {
+  const filteredProducts: IProduct[] = products.filter((product: IProduct) =>
+    product.title.toLowerCase().includes(searchElement.value.toLowerCase())
+  );
+  displayProducts(filteredProducts);
+});
+
 // Sections
 const cartContent = document.getElementById("card-content") as HTMLElement;
 
