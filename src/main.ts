@@ -21,7 +21,7 @@ const womenClothingFlt = document.getElementById(
 ) as HTMLButtonElement;
 
 // Sections
-const cartContent = document.getElementById("cart-content") as HTMLElement;
+const cartContent = document.getElementById("card-content") as HTMLElement;
 
 electronicsFlt.addEventListener("click", () => {
   const electronicProducts: IProduct[] = products.filter(
