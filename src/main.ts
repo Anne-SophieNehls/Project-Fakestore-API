@@ -27,6 +27,20 @@ searchElement.addEventListener("change", () => {
   displayProducts(filteredProducts);
 });
 
+sortElement.addEventListener("change", () => {
+  if (sortElement.value === "price_up") {
+    const sortedProducts: IProduct[] = products.sort(
+      (p1: IProduct, p2: IProduct) => p1.price - p2.price
+    );
+    displayProducts(sortedProducts);
+  } else if (sortElement.value === "price_down") {
+    const sortedProducts: IProduct[] = products.sort(
+      (p1: IProduct, p2: IProduct) => p2.price - p1.price
+    );
+    displayProducts(sortedProducts);
+  }
+});
+
 // Sections
 const cartContent = document.getElementById("card-content") as HTMLElement;
 
