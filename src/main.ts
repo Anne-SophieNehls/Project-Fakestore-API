@@ -25,21 +25,32 @@ const cartContent = document.getElementsByClassName(
   "cart-content"
 )[0] as HTMLElement;
 
+electronicsFlt.addEventListener("click", () => {
+  console.log("You chose Electronics");
+});
+jeweleryFlt.addEventListener("click", () => {
+  console.log("You chose Jewelery");
+});
+menClothingFlt.addEventListener("click", () => {
+  console.log("You chose Men's Clothing");
+});
+womenClothingFlt.addEventListener("click", () => {
+  console.log("You chose Women's Clothing");
+});
+
 // bei leerem Search-Feld alles ausgeben
-if (searchElement.value.length === 0) {
-  fetch(PRODUCT_URL)
-    .then((response: Response) => {
-      return response.json();
-    })
-    .then((data: any) => {
-      data.forEach((product: IProduct) => {
-        const productCard = document.createElement("div") as HTMLDivElement;
-        const productDiv = document.createElement("div") as HTMLDivElement;
-        const priceDiv = document.createElement("div") as HTMLDivElement;
-        productCard.appendChild(productDiv);
-        productCard.appendChild(priceDiv);
-        cartContent.appendChild(productCard);
-      });
-    })
-    .catch((error: Error) => console.error(error.message));
-}
+fetch(PRODUCT_URL)
+  .then((response: Response) => {
+    return response.json();
+  })
+  .then((data: any) => {
+    data.forEach((product: IProduct) => {
+      const productCard = document.createElement("div") as HTMLDivElement;
+      const productDiv = document.createElement("div") as HTMLDivElement;
+      const priceDiv = document.createElement("div") as HTMLDivElement;
+      productCard.appendChild(productDiv);
+      productCard.appendChild(priceDiv);
+      cartContent.appendChild(productCard);
+    });
+  })
+  .catch((error: Error) => console.error(error.message));
