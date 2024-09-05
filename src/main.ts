@@ -80,8 +80,8 @@ const displayProducts = (productList: IProduct[]) => {
     productTitle.textContent = product.title;
     productDiv.appendChild(productTitle);
 
-    const productSeparator = document.createElement("hr") as HTMLHRElement;
-    priceDiv.appendChild(productSeparator);
+    //const productSeparator = document.createElement("hr") as HTMLHRElement;
+    //priceDiv.appendChild(productSeparator);
     const productPrice = document.createElement("p") as HTMLParagraphElement;
     productPrice.className = "price";
     productPrice.textContent = `$ ${product.price.toString()}`;
