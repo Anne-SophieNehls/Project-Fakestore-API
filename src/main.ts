@@ -26,31 +26,54 @@ const cartContent = document.getElementsByClassName(
 )[0] as HTMLElement;
 
 electronicsFlt.addEventListener("click", () => {
-  console.log("You chose Electronics");
+  const electronicProducts: IProduct[] = products.filter(
+    (product) => product.category === Category.Electronics
+  );
+  displayProducts(electronicProducts);
 });
 jeweleryFlt.addEventListener("click", () => {
-  console.log("You chose Jewelery");
+  const jewelryProducts: IProduct[] = products.filter(
+    (product) => product.category === Category.Jewelery
+  );
+  displayProducts(jewelryProducts);
 });
 menClothingFlt.addEventListener("click", () => {
-  console.log("You chose Men's Clothing");
+  const menClothingProducts: IProduct[] = products.filter(
+    (product) => product.category === Category.MenSClothing
+  );
+  displayProducts(menClothingProducts);
 });
 womenClothingFlt.addEventListener("click", () => {
-  console.log("You chose Women's Clothing");
+  const womenClothingProducts: IProduct[] = products.filter(
+    (product) => product.category === Category.WomenSClothing
+  );
+  displayProducts(womenClothingProducts);
 });
 
-// bei leerem Search-Feld alles ausgeben
+const products: IProduct[] = [];
+
 fetch(PRODUCT_URL)
   .then((response: Response) => {
     return response.json();
   })
   .then((data: any) => {
     data.forEach((product: IProduct) => {
-      const productCard = document.createElement("div") as HTMLDivElement;
-      const productDiv = document.createElement("div") as HTMLDivElement;
-      const priceDiv = document.createElement("div") as HTMLDivElement;
-      productCard.appendChild(productDiv);
-      productCard.appendChild(priceDiv);
-      cartContent.appendChild(productCard);
+      products.push(product);
     });
   })
   .catch((error: Error) => console.error(error.message));
+
+const displayProducts = (productList: IProduct[]) => {
+  cartContent.innerHTML = "";
+
+  productList.forEach(() => {
+    const productCard = document.createElement("div") as HTMLDivElement;
+    const productDiv = document.createElement("div") as HTMLDivElement;
+    const priceDiv = document.createElement("div") as HTMLDivElement;
+    productCard.appendChild(productDiv);
+    productCard.appendChild(priceDiv);
+    cartContent.appendChild(productCard);
+  });
+};
+
+displayProducts(products);
