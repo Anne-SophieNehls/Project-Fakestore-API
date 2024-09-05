@@ -75,7 +75,8 @@ fetch(PRODUCT_URL)
       products.push(product);
     });
   })
-  .catch((error: Error) => console.error(error.message));
+  .catch((error: Error) => console.error(error.message))
+  .finally()
 
 const displayProducts = (productList: IProduct[]) => {
   cartContent.innerHTML = "";
