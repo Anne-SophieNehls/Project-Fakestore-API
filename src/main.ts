@@ -21,7 +21,7 @@ const womenClothingFlt = document.getElementById(
 ) as HTMLButtonElement;
 
 //loader
-const loader = document.querySelector(".loader") as HTMLSpanElement
+const loader = document.querySelector(".loader") as HTMLSpanElement;
 
 searchElement.addEventListener("change", () => {
   const filteredProducts: IProduct[] = products.filter((product: IProduct) =>
@@ -67,19 +67,23 @@ womenClothingFlt.addEventListener("click", () => {
   displayProducts(womenClothingProducts);
 });
 
-const products: IProduct[] = [];
-
-fetch(PRODUCT_URL)
-  .then((response: Response) => {
-    return response.json();
-  })
-  .then((data: any) => {
-    data.forEach((product: IProduct) => {
-      products.push(product);
+const initializeProducts = (): IProduct[] => {
+  const products: IProduct[] = [];
+  fetch(PRODUCT_URL)
+    .then((response: Response) => {
+      return response.json();
+    })
+    .then((data: any) => {
+      data.forEach((product: IProduct) => {
+        products.push(product);
+      });
+    })
+    .catch((error: Error) => console.error(error.message))
+    .finally(() => {
+      loader.style.display = "none";
     });
-  })
-  .catch((error: Error) => console.error(error.message))
-  .finally(()=>{loader.style.display = "none"})
+  return products;
+};
 
 const displayProducts = (productList: IProduct[]) => {
   cartContent.innerHTML = "";
@@ -117,4 +121,5 @@ const displayProducts = (productList: IProduct[]) => {
   });
 };
 
+const products: IProduct[] = initializeProducts();
 displayProducts(products);
