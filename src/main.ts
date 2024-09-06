@@ -64,18 +64,19 @@ womenClothingFlt.addEventListener("click", () => {
   displayProducts(womenClothingProducts);
 });
 
-const products: IProduct[] = [];
-
-fetch(PRODUCT_URL)
-  .then((response: Response) => {
-    return response.json();
-  })
-  .then((data: any) => {
-    data.forEach((product: IProduct) => {
-      products.push(product);
-    });
-  })
-  .catch((error: Error) => console.error(error.message));
+const initializeProducts = (): IProduct[] => {
+  fetch(PRODUCT_URL)
+    .then((response: Response) => {
+      return response.json();
+    })
+    .then((data: any) => {
+      data.forEach((product: IProduct) => {
+        products.push(product);
+      });
+    })
+    .catch((error: Error) => console.error(error.message));
+  return products;
+};
 
 const displayProducts = (productList: IProduct[]) => {
   cartContent.innerHTML = "";
@@ -113,4 +114,5 @@ const displayProducts = (productList: IProduct[]) => {
   });
 };
 
+const products: IProduct[] = initializeProducts();
 displayProducts(products);
