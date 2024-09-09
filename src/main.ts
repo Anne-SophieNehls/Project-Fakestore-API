@@ -1,5 +1,5 @@
 import "./style.css";
-import { IProduct, IRating, Category } from "./interfaces/IProduct";
+import { IProduct, Category } from "./interfaces/IProduct";
 
 const BASE_URL = "https://fakestoreapi.com";
 const PRODUCT_URL = `${BASE_URL}/products`;
